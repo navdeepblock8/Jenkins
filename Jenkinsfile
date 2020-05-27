@@ -5,7 +5,7 @@ node{
         checkout scm
     }
 
-    stage('Build iamge'){
+    stage('Build image'){
         app = docker.build("navdeepduvedi/nodeapp")
     }
 
