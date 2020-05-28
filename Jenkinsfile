@@ -18,13 +18,11 @@ node{
     
 }
 node{
-    def app2
-     
       
       stage('Push Image'){
         docker.withRegistry('https://registry.hub.docker.com','docker-cred'){
-            app2.push("${env.BUILD_NUMBER}")
-            app2.push("latest")
+            app1.push("${env.BUILD_NUMBER}")
+            app1.push("latest")
         }
         echo "Trying to push Docker Build to Dockerhub"
     }
