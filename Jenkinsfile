@@ -10,11 +10,8 @@ node{
     }
 
     stage('Test image'){
-        app.inside{
-            echo "Test passed"
-        }
-    }
-
+        
+    sh 'npm test'   
     
 }
 node{
