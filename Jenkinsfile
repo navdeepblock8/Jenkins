@@ -10,7 +10,7 @@ node{
     }
 
     stage('Test image'){
-        
+    sh 'npm install'    
     sh 'npm test'  
     } 
     
