@@ -11,7 +11,8 @@ node{
 
     stage('Test image'){
         
-    sh 'npm test'   
+    sh 'npm test'  
+    } 
     
 }
 node{
