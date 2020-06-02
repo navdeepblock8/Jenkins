@@ -2,7 +2,9 @@ pipeline{
     agent any
     stages{
         stage('Clone repository'){
-            checkout scm
+            steps{
+                checkout scm
+            }
         }
         stage('Test and Build'){
             parallel{
@@ -13,7 +15,9 @@ pipeline{
                     }
                 }
                 stage('Build image'){
-                    sh 'docker build -t navdeepduvedi/nodeapp .'
+                    steps{
+                        sh 'docker build -t navdeepduvedi/nodeapp .'
+                    }
                 }
             }
         }
