@@ -1,6 +1,5 @@
 pipeline{
     agent any
-    def app
     stages{
         stage('Clone repository'){
             checkout scm
@@ -14,16 +13,16 @@ pipeline{
                     }
                 }
                 stage('Build image'){
-                    app = docker.build('navdeepduvedi/nodeapp')
+                    sh 'docker build -t navdeepduvedi/nodeapp .'
                 }
             }
         }
-        stage('Push Image'){
+       /* stage('Push Image'){
             docker.withRegistry('https://registry.hub.docker.com','docker-cred'){
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")  
             }
-         }
+         }*/
 }
 }
 /*node{
