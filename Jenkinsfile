@@ -25,9 +25,8 @@ pipeline{
         }
         stage('Push Image'){
             steps{
-                docker.withRegistry('https://registry.hub.docker.com','docker-cred'){
-            env.app.push("${env.BUILD_NUMBER}")
-            env.app.push("latest")  
+                withDockerRegistry([ credentialsId: "docker111", url: "https://registry.hub.docker.com" ]){
+                sh "docker push navdeepduvedi/nodeapps:latest"
             }
             }
             
