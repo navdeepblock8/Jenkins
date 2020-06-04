@@ -16,7 +16,7 @@ pipeline{
                 }
                 stage('Build images'){
                     steps{
-                        sh 'docker build -t navdeepduvedi/nodeapp .'
+                        sh 'docker build -t navdeepduvedi/nodeapps .'
                     }
                 }
             }
