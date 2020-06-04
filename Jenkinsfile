@@ -1,5 +1,3 @@
-def app 
-
 pipeline{
     agent any
     stages{
@@ -18,7 +16,7 @@ pipeline{
                 }
                 stage('Build images'){
                     steps{
-                     env.app =  sh 'docker build -t navdeepduvedi/nodeapps .'
+                     sh 'docker build -t navdeepduvedi/nodeapps .'
                     }
                 }
             }
