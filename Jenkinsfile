@@ -1,5 +1,5 @@
 pipeline{
-    agent {label 'docker'}
+    agent any
     stages{
         stage('Clone repository'){
             steps{
@@ -15,13 +15,14 @@ pipeline{
                     }
                 }
                 stage('Build images'){
-                    steps{
-                     sh 'docker build -t navdeepduvedi/nodeapps .'
-                    }
+                    script {
+                    def customImage = docker.build("navdeepduvedi/nodeapp:${env.BUILD_ID}")
+                    customImage.push()
+                }
                 }
             }
         }
-        stage('Push Image'){
+        /*stage('Push Image'){
             steps{
                 withDockerRegistry([ credentialsId: "docker111", url: "https://registry.hub.docker.com" ]){
                 sh "docker push navdeepduvedi/nodeapps:latest"
@@ -29,6 +30,6 @@ pipeline{
             }
             
 
-         }
+         }*/
 }
 }
