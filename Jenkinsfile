@@ -16,10 +16,10 @@ pipeline{
                 }
                 stage('Build images'){
                     steps{
-                          script {
-                    def customImage = docker.build("navdeepduvedi/nodeapp:${env.BUILD_ID}")
-                    customImage.push()
-                    }
+                          
+                     sh "docker build -t navdeepduvedi/nodeapp"
+                    //customImage.push()
+                    
                     
                 }
                 }
