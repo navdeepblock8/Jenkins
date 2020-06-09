@@ -20,7 +20,7 @@ pipeline{
                 script{
                 def image = docker.build("jenkins-docker-personal/nodeapp:${BUILD_NUMBER}")         
             
-                 docker.withRegistry("https://asia.gcr.io","Jenkins-docker-personal"){
+                 docker.withRegistry("https://asia.gcr.io","gcr:Jenkins-docker-personal"){
                 image.push()
             }
             }
