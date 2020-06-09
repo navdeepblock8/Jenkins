@@ -6,14 +6,13 @@ pipeline{
                 checkout scm
             }
         }
-        stage('Test '){
-            
-                stage('Test'){
+        stage('Test'){
+        
                     steps{
                         sh 'npm install'
                         sh 'npm test'
                     }
-                }
+                
                
         }
         stage('Docker build and push'){
